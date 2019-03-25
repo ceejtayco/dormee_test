@@ -66,6 +66,8 @@ class DormController extends Controller
         $dorm->business_permit=$request->input('business_permit');
         $dorm->description=$request->input('description');
         $dorm->price=$request->input('price');
+        $dorm->lat = $request->input('lat');
+        $dorm->lng = $request->input('lat');
        $dorm->save();
 
        foreach ($request->input('filters') as $filter) {
