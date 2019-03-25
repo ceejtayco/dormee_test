@@ -1,7 +1,5 @@
 
 $(document).ready(function(){
-
-
  var slider1 = document.getElementById("slider1");
  var output1 = document.getElementById("value1");
  var slider2 = document.getElementById("slider2");

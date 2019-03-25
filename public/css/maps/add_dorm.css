@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#map-canvas {
+    
+    width: 200px;
+    height: 300px;
+}
+
+#label-map {
+    text-align: right;
+    margin-left: 30rem;
+}
