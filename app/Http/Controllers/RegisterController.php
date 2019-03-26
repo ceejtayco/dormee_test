@@ -66,6 +66,7 @@ class RegisterController extends Controller
         $user->address=$request->input('address');
         $user->about=$request->input('about');
         $image = $request->file('photo');
+        
         $name = date('Y-m-d') . "-" . $image->getClientOriginalName();
         $save_path = public_path() . '\images\users\\' . $name;
         Image::make($image->getRealPath())->resize(200, 200)->save($save_path);
