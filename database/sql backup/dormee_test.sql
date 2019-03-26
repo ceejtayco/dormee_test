@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 18, 2019 at 04:04 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Host: localhost
+-- Generation Time: Mar 26, 2019 at 10:39 AM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -79,29 +79,37 @@ CREATE TABLE `dorms` (
   `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` decimal(8,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lat` double DEFAULT NULL,
+  `lng` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `dorms`
 --
 
-INSERT INTO `dorms` (`id`, `landlord_id`, `status`, `name`, `genders`, `curfew`, `rooms`, `address`, `business_permit`, `description`, `price`, `created_at`, `updated_at`) VALUES
-(1, 2, 2, '232', 'Female', '10:00:00', '1', '223', '232', '23', '23.00', '2019-03-16 16:00:19', '2019-03-16 16:23:45'),
-(2, 2, 0, 'Sophia Edwards', 'Male', '00:00:11', '1', 'Madison Avenue 123', '1111111111', '121', '122.00', '2019-03-16 20:35:13', '2019-03-16 20:35:13'),
-(3, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:37:03', '2019-03-16 20:37:03'),
-(4, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:37:27', '2019-03-16 20:37:27'),
-(5, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:39:00', '2019-03-16 20:39:00'),
-(6, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:40:13', '2019-03-16 20:40:13'),
-(7, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:40:37', '2019-03-16 20:40:37'),
-(8, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:43:09', '2019-03-16 20:43:09'),
-(9, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:43:56', '2019-03-16 20:43:56'),
-(10, 2, 0, '1212', 'Male', '00:00:01', '1', '1212', '11111111111', '11', '1.00', '2019-03-16 21:14:45', '2019-03-16 21:14:45'),
-(11, 2, 0, 'Sophia Edwards21', 'Mixed', '02:32:33', '1', 'Madison Avenue 123232', '121222', '232', '23.00', '2019-03-16 21:20:52', '2019-03-16 21:20:52'),
-(12, 2, 0, 'Sophia Edwards21', 'Mixed', '02:32:33', '1', 'Madison Avenue 123232', '121222', '232', '23.00', '2019-03-16 21:22:20', '2019-03-16 21:22:20'),
-(13, 2, 0, '121', 'Female', '00:12:12', '1', '1212', '12121212', '1212', '1212.00', '2019-03-16 21:24:37', '2019-03-16 21:24:37'),
-(14, 2, 0, '121', 'Female', '00:12:12', '1', '1212', '12121212', '1212', '1212.00', '2019-03-16 21:26:12', '2019-03-16 21:26:12'),
-(15, 2, 0, '121211', 'Male', '00:12:12', '1', '212', '111111111', '111111111', '1.00', '2019-03-16 21:26:29', '2019-03-16 21:26:29');
+INSERT INTO `dorms` (`id`, `landlord_id`, `status`, `name`, `genders`, `curfew`, `rooms`, `address`, `business_permit`, `description`, `price`, `created_at`, `updated_at`, `lat`, `lng`) VALUES
+(1, 2, 2, '232', 'Female', '10:00:00', '1', '223', '232', '23', '23.00', '2019-03-16 16:00:19', '2019-03-16 16:23:45', NULL, NULL),
+(2, 2, 0, 'Sophia Edwards', 'Male', '00:00:11', '1', 'Madison Avenue 123', '1111111111', '121', '122.00', '2019-03-16 20:35:13', '2019-03-16 20:35:13', NULL, NULL),
+(3, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:37:03', '2019-03-16 20:37:03', NULL, NULL),
+(4, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:37:27', '2019-03-16 20:37:27', NULL, NULL),
+(5, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:39:00', '2019-03-16 20:39:00', NULL, NULL),
+(6, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:40:13', '2019-03-16 20:40:13', NULL, NULL),
+(7, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:40:37', '2019-03-16 20:40:37', NULL, NULL),
+(8, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:43:09', '2019-03-16 20:43:09', NULL, NULL),
+(9, 2, 0, 'Sophia Edwards', 'Male', '00:12:12', '1', 'Madison Avenue 123', '1211212', '121', '121.00', '2019-03-16 20:43:56', '2019-03-16 20:43:56', NULL, NULL),
+(10, 2, 0, '1212', 'Male', '00:00:01', '1', '1212', '11111111111', '11', '1.00', '2019-03-16 21:14:45', '2019-03-16 21:14:45', NULL, NULL),
+(11, 2, 0, 'Sophia Edwards21', 'Mixed', '02:32:33', '1', 'Madison Avenue 123232', '121222', '232', '23.00', '2019-03-16 21:20:52', '2019-03-16 21:20:52', NULL, NULL),
+(12, 2, 0, 'Sophia Edwards21', 'Mixed', '02:32:33', '1', 'Madison Avenue 123232', '121222', '232', '23.00', '2019-03-16 21:22:20', '2019-03-16 21:22:20', NULL, NULL),
+(13, 2, 0, '121', 'Female', '00:12:12', '1', '1212', '12121212', '1212', '1212.00', '2019-03-16 21:24:37', '2019-03-16 21:24:37', NULL, NULL),
+(14, 2, 0, '121', 'Female', '00:12:12', '1', '1212', '12121212', '1212', '1212.00', '2019-03-16 21:26:12', '2019-03-16 21:26:12', NULL, NULL),
+(15, 2, 0, '121211', 'Male', '00:12:12', '1', '212', '111111111', '111111111', '1.00', '2019-03-16 21:26:29', '2019-03-16 21:26:29', NULL, NULL),
+(16, 8, 0, 'Dorm ni CJ', 'Female', '10:30:00', '1', 'Roxas Avenue, Poblacion District, Davao City, Davao del Sur, Philippines', '1231231', 'description', '1922.00', '2019-03-26 01:14:52', '2019-03-26 01:14:52', 7.069337272880809, 7.069337272880809),
+(17, 8, 0, 'Test Dorm 2', 'Mixed', '09:00:00', '1', 'University of Mindanao Drive, Talomo, Davao City, Davao del Sur, Philippines', '2123123', 'Description', '2923.00', '2019-03-26 01:17:12', '2019-03-26 01:17:12', 7.0655588, 7.0655588),
+(18, 8, 0, 'Test Dorm 2', 'Mixed', '10:30:00', '1', 'University of Mindanao - Bolton, Bolton Street, Poblacion District, Davao City, Davao del Sur, Philippines', '2123123', 'Description', '2923.00', '2019-03-26 01:17:42', '2019-03-26 01:17:42', 7.0675875053701835, 7.0675875053701835),
+(19, 8, 0, 'Test Dorm 3', 'Mixed', '10:30:00', '1', 'Roxas Avenue, Poblacion District, Davao City, Davao del Sur, Philippines', '123123', 'Description', '2932.00', '2019-03-26 01:18:56', '2019-03-26 01:18:56', 7.069358567429986, 7.069358567429986),
+(20, 8, 0, 'Test Dorm 12', 'Mixed', '10:30:00', '2', 'Skyline Village, Talomo, Davao City, Davao del Sur, Philippines', '12310293', 'description', '1029.00', '2019-03-26 01:21:41', '2019-03-26 01:21:41', 7.077938817136895, 7.077938817136895),
+(21, 8, 0, 'Test Dorm Puan', 'Mixed', '10:30:00', '2', 'Carmelo Homes Puan, Talomo, Davao City, Davao del Sur, Philippines', '012309123', 'Desc', '1032.00', '2019-03-26 01:22:44', '2019-03-26 01:22:44', 7.052140879818581, 7.052140879818581);
 
 -- --------------------------------------------------------
 
@@ -129,7 +137,27 @@ INSERT INTO `dorm_attributes` (`id`, `dorm_id`, `attribute_id`, `created_at`, `u
 (5, 15, 2, '2019-03-16 21:26:29', '2019-03-16 21:26:29'),
 (6, 15, 3, '2019-03-16 21:26:29', '2019-03-16 21:26:29'),
 (7, 15, 4, '2019-03-16 21:26:30', '2019-03-16 21:26:30'),
-(8, 15, 5, '2019-03-16 21:26:30', '2019-03-16 21:26:30');
+(8, 15, 5, '2019-03-16 21:26:30', '2019-03-16 21:26:30'),
+(9, 16, 1, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(10, 16, 2, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(11, 16, 3, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(12, 16, 4, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(13, 16, 5, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(14, 19, 1, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(15, 19, 2, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(16, 19, 3, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(17, 19, 4, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(18, 19, 5, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(19, 20, 1, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(20, 20, 2, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(21, 20, 3, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(22, 20, 4, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(23, 20, 5, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(24, 21, 1, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(25, 21, 2, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(26, 21, 3, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(27, 21, 4, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(28, 21, 5, '2019-03-26 01:22:44', '2019-03-26 01:22:44');
 
 -- --------------------------------------------------------
 
@@ -199,7 +227,11 @@ CREATE TABLE `dorm_photos` (
 
 INSERT INTO `dorm_photos` (`id`, `dorm_id`, `photo`, `photo_type`, `created_at`, `updated_at`) VALUES
 (1, 10, 'public\\images\\users\\2019-03-17-coconut_design_elements_vector_graphic_571945.jpg', 'main', '2019-03-16 21:14:46', '2019-03-16 21:14:46'),
-(2, 15, 'public\\images\\users\\2019-03-17-cover.jpg.png', 'main', '2019-03-16 21:26:30', '2019-03-16 21:26:30');
+(2, 15, 'public\\images\\users\\2019-03-17-cover.jpg.png', 'main', '2019-03-16 21:26:30', '2019-03-16 21:26:30'),
+(3, 16, 'public\\images\\dorms\\2019-03-26-dorm-rooms-4.jpg', 'main', '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(4, 19, 'public\\images\\dorms\\2019-03-26-dorm-rooms-4.jpg', 'main', '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(5, 20, 'public\\images\\dorms\\2019-03-26-dorm-rooms-4.jpg', 'main', '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(6, 21, 'public\\images\\dorms\\2019-03-26-dorm-rooms-4.jpg', 'main', '2019-03-26 01:22:44', '2019-03-26 01:22:44');
 
 -- --------------------------------------------------------
 
@@ -369,7 +401,33 @@ INSERT INTO `specific_dorm_filters` (`id`, `dorm_id`, `filter_id`, `value`, `qua
 (20, 14, 3, NULL, NULL, '2019-03-16 21:26:12', '2019-03-16 21:26:12'),
 (21, 14, 6, NULL, NULL, '2019-03-16 21:26:12', '2019-03-16 21:26:12'),
 (22, 14, 7, NULL, NULL, '2019-03-16 21:26:12', '2019-03-16 21:26:12'),
-(23, 15, 8, NULL, NULL, '2019-03-16 21:26:29', '2019-03-16 21:26:29');
+(23, 15, 8, NULL, NULL, '2019-03-16 21:26:29', '2019-03-16 21:26:29'),
+(24, 16, 1, NULL, NULL, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(25, 16, 2, NULL, NULL, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(26, 16, 6, NULL, NULL, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(27, 16, 12, NULL, NULL, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(28, 17, 2, NULL, NULL, '2019-03-26 01:17:12', '2019-03-26 01:17:12'),
+(29, 17, 6, NULL, NULL, '2019-03-26 01:17:12', '2019-03-26 01:17:12'),
+(30, 17, 7, NULL, NULL, '2019-03-26 01:17:12', '2019-03-26 01:17:12'),
+(31, 17, 12, NULL, NULL, '2019-03-26 01:17:12', '2019-03-26 01:17:12'),
+(32, 18, 2, NULL, NULL, '2019-03-26 01:17:42', '2019-03-26 01:17:42'),
+(33, 18, 6, NULL, NULL, '2019-03-26 01:17:42', '2019-03-26 01:17:42'),
+(34, 18, 7, NULL, NULL, '2019-03-26 01:17:42', '2019-03-26 01:17:42'),
+(35, 18, 12, NULL, NULL, '2019-03-26 01:17:42', '2019-03-26 01:17:42'),
+(36, 19, 1, NULL, NULL, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(37, 19, 2, NULL, NULL, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(38, 19, 6, NULL, NULL, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(39, 19, 7, NULL, NULL, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(40, 20, 1, NULL, NULL, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(41, 20, 2, NULL, NULL, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(42, 20, 6, NULL, NULL, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(43, 20, 7, NULL, NULL, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(44, 21, 1, NULL, NULL, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(45, 21, 2, NULL, NULL, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(46, 21, 3, NULL, NULL, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(47, 21, 6, NULL, NULL, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(48, 21, 7, NULL, NULL, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(49, 21, 12, NULL, NULL, '2019-03-26 01:22:44', '2019-03-26 01:22:44');
 
 -- --------------------------------------------------------
 
@@ -421,8 +479,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `is_flagged`, `user_type_id`, `username`, `email`, `password`, `first_name`, `last_name`, `gender`, `occupation_id`, `is_roommate`, `birthdate`, `phone`, `address`, `about`, `photo`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 0, 1, 'admin', 'gokagav@virtual-email.com', '$2y$10$JhRH4bl913UbBjX5qfy5qu9tMoueM5m/DfoXqDl1BcQ/sDRzmzOCC', 'ere', 'erer', 'Male', 1, 0, '2019-03-28', '1212', '1212', '1212', 'msari.PNG', 'fNQi4KTvs6ndayBBDyQf7BTbZAVaYJgI16pHjNEoq3Xlok1zoHjHyxdQwIuF', '2019-03-14 23:51:17', '2019-03-14 23:51:17'),
-(2, 0, 2, 'lulu', 'goggles@zep-hyr.com', '$2y$10$TMugNvNWEILu0u0FWzx1xOq9Vsvj0ybBgs9G47Knq46wXLUOz.VHC', 'Sophia', 'Edwards', 'Female', 2, 0, '2019-03-13', '232', 'Madison Avenue 123', '2323', 'public\\images\\users\\2019-03-16-coconut_design_elements_vector_graphic_571945.jpg', 'YPE1VPAu2UbXyy5N18b7ldrHlgKMpiMuSoIOJvn91NPeWlhS80Sxliz6Ae3a', '2019-03-15 20:11:51', '2019-03-15 20:11:51'),
-(5, 0, 2, 'aaa', 'goggles@zep-hyr.co', '$2y$10$vr3VqQodqa35PHFOb.LImOnHx1YG7.jWaxUw7WJ9k8bW19ntwRGLi', 'Sophia', 'Edwards', 'Male', 2, 0, '2019-03-22', '23232', 'Madison Avenue 123', '232323', 'public\\images\\users\\2019-03-16-cover.jpg.png', 'GE9uBkaK5MYJTcD7H7wwIu9qYlsScG1DUNork3u4zJLBhLBw95kZuwhODqD0', '2019-03-15 20:14:31', '2019-03-15 20:14:31');
+(2, 0, 2, 'lulu', 'goggles@zep-hyr.com', '$2y$10$TMugNvNWEILu0u0FWzx1xOq9Vsvj0ybBgs9G47Knq46wXLUOz.VHC', 'Sophia', 'Edwards', 'Female', 2, 0, '2019-03-13', '232', 'Madison Avenue 123', '2323', 'public\\images\\users\\2019-03-16-coconut_design_elements_vector_graphic_571945.jpg', 'HmUa5GgpwfQuf5DtCD7tyffdYHbODjpCHtpbhYaLTjGc3DAvYhMBToWhRAJO', '2019-03-15 20:11:51', '2019-03-15 20:11:51'),
+(5, 0, 2, 'aaa', 'goggles@zep-hyr.co', '$2y$10$vr3VqQodqa35PHFOb.LImOnHx1YG7.jWaxUw7WJ9k8bW19ntwRGLi', 'Sophia', 'Edwards', 'Male', 2, 0, '2019-03-22', '23232', 'Madison Avenue 123', '232323', 'public\\images\\users\\2019-03-16-cover.jpg.png', 'GE9uBkaK5MYJTcD7H7wwIu9qYlsScG1DUNork3u4zJLBhLBw95kZuwhODqD0', '2019-03-15 20:14:31', '2019-03-15 20:14:31'),
+(8, 0, 2, 'ceejtayco', 'ceejltayco@gmail.com', '$2y$10$y3uJBqWa833s2EnTnBry2eEI3r645vOUs3FVDEMc2LmHNbcRokuJi', 'Ceej', 'Tayco', 'Female', 2, 0, '1999-01-23', '09199990199', '#18 San Isidro Street, Skyline Village, Davao City', 'Hello World.', 'public\\images\\users\\2019-03-26-dorm-rooms-4.jpg', 'PzOHBcGYSyjh1eU9YvTMqDG2IWZFwPc5VpEGRg1JAUyNH9BiSyKG4qmENbSy', '2019-03-26 01:05:42', '2019-03-26 01:05:42'),
+(9, 0, 2, 'mitamitz', 'mita@gmail.com', '$2y$10$d5kLkAetRbYSaveAxL9WmOvW8BD77M8b8SrHtYgBQu6TZr7yZ7kam', 'Jenny Mae', 'Badilles', 'Female', 3, 0, '1992-02-22', '09199990199', 'Puan, Davao City', 'Hello World.', 'public\\images\\users\\2019-03-26-OJT-Jenny copy.jpg', 'h9nPXAO3tzEombDdkcz2FDPSCcP6N3zfSwpFCJ6Sg7MeXfCGahrSCdUhh5Nf', '2019-03-26 01:27:09', '2019-03-26 01:27:09');
 
 -- --------------------------------------------------------
 
@@ -479,7 +539,27 @@ INSERT INTO `user_dorm_attribute_ratings` (`id`, `user_id`, `dorm_attribute_id`,
 (2, 2, 5, '1', 1, '2019-03-16 21:26:29', '2019-03-16 21:26:29'),
 (3, 2, 6, '1', 1, '2019-03-16 21:26:30', '2019-03-16 21:26:30'),
 (4, 2, 7, '1', 1, '2019-03-16 21:26:30', '2019-03-16 21:26:30'),
-(5, 2, 8, '1', 1, '2019-03-16 21:26:30', '2019-03-16 21:26:30');
+(5, 2, 8, '1', 1, '2019-03-16 21:26:30', '2019-03-16 21:26:30'),
+(6, 8, 9, '4', 1, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(7, 8, 10, '3', 1, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(8, 8, 11, '4', 1, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(9, 8, 12, '4', 1, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(10, 8, 13, '3', 1, '2019-03-26 01:14:52', '2019-03-26 01:14:52'),
+(11, 8, 14, '2', 1, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(12, 8, 15, '2', 1, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(13, 8, 16, '2', 1, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(14, 8, 17, '3', 1, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(15, 8, 18, '2', 1, '2019-03-26 01:18:56', '2019-03-26 01:18:56'),
+(16, 8, 19, '3', 1, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(17, 8, 20, '3', 1, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(18, 8, 21, '2', 1, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(19, 8, 22, '3', 1, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(20, 8, 23, '2', 1, '2019-03-26 01:21:41', '2019-03-26 01:21:41'),
+(21, 8, 24, '2', 1, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(22, 8, 25, '3', 1, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(23, 8, 26, '2', 1, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(24, 8, 27, '2', 1, '2019-03-26 01:22:44', '2019-03-26 01:22:44'),
+(25, 8, 28, '3', 1, '2019-03-26 01:22:44', '2019-03-26 01:22:44');
 
 -- --------------------------------------------------------
 
@@ -745,13 +825,13 @@ ALTER TABLE `boarder_schedules`
 -- AUTO_INCREMENT for table `dorms`
 --
 ALTER TABLE `dorms`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `dorm_attributes`
 --
 ALTER TABLE `dorm_attributes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `dorm_boarders`
@@ -769,7 +849,7 @@ ALTER TABLE `dorm_filters`
 -- AUTO_INCREMENT for table `dorm_photos`
 --
 ALTER TABLE `dorm_photos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `logs`
@@ -811,7 +891,7 @@ ALTER TABLE `roommate_filters`
 -- AUTO_INCREMENT for table `specific_dorm_filters`
 --
 ALTER TABLE `specific_dorm_filters`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `specific_roommate_filters`
@@ -823,7 +903,7 @@ ALTER TABLE `specific_roommate_filters`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user_bookmarks`
@@ -841,7 +921,7 @@ ALTER TABLE `user_dorm_applications`
 -- AUTO_INCREMENT for table `user_dorm_attribute_ratings`
 --
 ALTER TABLE `user_dorm_attribute_ratings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user_dorm_reports`
